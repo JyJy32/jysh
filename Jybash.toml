@@ -1,0 +1,140 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 2
+# based on catppuccin
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+	[[blocks.segments]]
+	type = "os"
+	style = "diamond"
+	template = "{{.Icon}} "
+	background = "#8AADF4"
+	foreground = "#FFFFFF"
+	powerline_symbol = "\ue0b4"
+	leading_diamond = "\ue0b6"
+
+	[[blocks.segments]]
+	type = "session"
+	style = "diamond"
+	template = "{{ .UserName }}"
+	powerline_symbol = "\ue0b4"
+	background = "#8AADF4"
+	foreground = "#494D64"
+
+	[[blocks.segments]]
+	type = "time"
+	style = "powerline"
+	powerline_symbol = "\ue0b4"
+	background = "#8AADF4"
+	foreground = "#494D64"
+
+	    [blocks.segments.properties]
+		time_format = "Mon, 02 Jan|15:04"
+	
+    [[blocks.segments]]
+    type = "battery"
+    style = "powerline"
+    powerline_symbol = "\ue0b4"
+    background = "#89CE94"
+    foreground = "#494D64"
+    template = "{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}% {{if ge .Percentage 75 }}\uf240{{else if ge .Percentage 50}}\uf241{{else if ge .Percentage 25}}\uf242{{else}}\uf243{{ end }}"
+
+        [blocks.segments.properties]
+        charging_icon = "\uf0e7 "
+        discharging_icon = "\uf0e7 "
+        charged_icon = "\uf1e6 "
+        not_charging_icon = "\uf1e6 "
+
+	[[blocks.segments]]
+	type = "path"
+	style = "powerline"
+	template = " \ue5ff {{ .Path }} "
+	powerline_symbol = "\ue0b4"
+	background = "#F5BDE6"
+	foreground = "#494D64"
+		
+		[blocks.segments.properties]
+		style = "folder"
+		folder_icon = "\ue5ff"
+		home_icon = "~"
+
+	[[blocks.segments]]
+	type = "rust"
+	style = "powerline"
+	powerline_symbol = "\ue0b4"
+	template = "  {{ .Full }} "
+	background = "#F58442"
+	foreground = "#494D64"
+
+	[[blocks.segments]]
+	type = "project"
+	style = "powerline"
+	powerline_symbol = ""
+	foreground = "#494D64"
+	background = "#30D5C8"
+	template = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
+
+	[[blocks.segments]]
+	type = "docker"
+	style = "powerline"
+	powerline_symbol = ""
+	foreground = "#494D64"
+	background = "#F58442"
+	template = "  {{ .Context }} "
+
+	[[blocks.segments]]
+	type = "python"
+	style = "powerline"
+	powerline_symbol = ""
+	foreground = "#100e23"
+	background = "#906cff"
+	template = "  {{ .Full }} "
+
+    [[blocks.segments]]
+    type = "go"
+    style = "powerline"
+    powerline_symbol = ""
+    background = "#0fa2f7"
+    foreground = "#494D64"
+    template = "  {{ .Full }} "
+
+	[[blocks.segments]]
+	type = "git"
+	style = "powerline"
+	powerline_symbol = "\ue0b4"
+	background = "#B7BDF8"
+	foreground = "#494D64"
+	template = " {{ .HEAD }} {{if .BranchStatus }}{{ .BranchStatus }}{{end}}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}"
+
+		[blocks.segments.properties]
+		branch_icon = "\ue725 "
+		cherry_pick_icon = "\ue29b "
+		commit_icon = "\uf417 "
+		fetch_status = true
+		fetch_upstream_icon = false
+		merge_icon = "\ue727 "
+		no_commits_icon = "\uf0c3 "
+		rebase_icon = "\ue728 "
+		revert_icon = "\uf0e2 "	
+		tag_icon = "\uf412 "
+
+	[[blocks.segments]]
+	type = "executiontime"
+	style = "plain"
+	foreround = "#494D6"
+	template = " <#fefefe></> {{ .FormattedMs }} "
+
+		[blocks.segments.properties]
+
+		threshold = 500
+		style = "austin"
+		always_enabled = true		
+
+	[[blocks.segments]]
+	type = "text"
+	style = "plain"
+	foreround = "#494D64"
+	template= "\n >"
+    
